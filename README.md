@@ -11,15 +11,16 @@ This repository contains code for fine-tuning a GPT-2 model to solve Python code
 
 Install the required packages listed in `requirements.txt`:
 
-```bash
-pip install -r requirements.txt
+##bash
+`pip install -r requirements.txt`
 
-##Main Libraries
+## Main Libraries
 transformers: Hugging Face's library for loading and fine-tuning language models.
 datasets: Hugging Face's library for accessing and processing datasets.
 torch: PyTorch, the deep learning framework used for model training.
 wandb: For logging and tracking experiments (can be disabled).
-Fine-Tuning the GPT-2 Model
+
+##Fine-Tuning the GPT-2 Model
 The fine_tune_gpt2.py script fine-tunes a pre-trained GPT-2 model (specifically distilgpt2) on a dataset of Python coding problems and solutions. The model is trained for 10 epochs with gradient accumulation and weight decay.
 
 Steps:
@@ -31,13 +32,13 @@ To run the script, use the following command:
 
 bash
 Copy code
-python fine_tune_gpt2.py
+`python fine_tune_gpt2.py`
 Testing the Model
 You can use the test_gpt2.py script to generate predictions from the fine-tuned model for new coding problems.
 
 bash
 Copy code
-python test_gpt2.py
+`python test_gpt2.py`
 Example Usage
 After fine-tuning, the model can generate Python solutions given a problem description. Below is a sample input and output:
 
@@ -46,11 +47,9 @@ Output: Solution: def square(x): return x ** 2
 Saving and Loading the Model
 The fine-tuned model and tokenizer are saved to the ./fine_tuned_gpt2 directory. You can load them using the following code:
 
-python
-Copy code
+```python Copy code
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 tokenizer = GPT2Tokenizer.from_pretrained('./fine_tuned_gpt2')
 model = GPT2LMHeadModel.from_pretrained('./fine_tuned_gpt2')
-License
 
